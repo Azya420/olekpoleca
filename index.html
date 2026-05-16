@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="olekpoleca.pl – nowoczesna strona z filmami polecanymi przez Olka."
+    />
+    <title>olekpoleca.pl — Filmy polecone przez Olka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <header class="topbar glass">
+      <a class="brand" href="#">
+        <span class="brand-dot"></span>
+        <span>olekpoleca.pl</span>
+      </a>
+      <nav class="topbar-actions">
+        <button id="themeToggle" class="btn btn-ghost" aria-label="Przełącz motyw">
+          🌙
+        </button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="hero glass">
+        <div>
+          <p class="tag">🎬 Kino • Streaming • Kultowe klasyki</p>
+          <h1>Filmy polecane przez Olka</h1>
+          <p class="subtitle">
+            Odkrywaj świetne produkcje, filtruj po gatunkach i buduj własną watchlistę.
+            Wszystko w nowoczesnym, szybkim i responsywnym wydaniu.
+          </p>
+          <div class="hero-ctas">
+            <a href="#films" class="btn btn-primary">Przeglądaj filmy</a>
+            <button id="randomPick" class="btn">🎲 Wylosuj film</button>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <article><strong id="countAll">0</strong><span>polecanych</span></article>
+          <article><strong id="countFav">0</strong><span>ulubionych</span></article>
+          <article><strong id="countGenres">0</strong><span>gatunków</span></article>
+        </div>
+      </section>
+
+      <section class="controls glass" id="films">
+        <div class="search-wrap">
+          <input id="searchInput" type="search" placeholder="Szukaj po tytule lub opisie..." />
+        </div>
+        <div id="genreFilters" class="genre-filters"></div>
+        <label class="switch">
+          <input id="favoritesOnly" type="checkbox" />
+          <span>Tylko ulubione</span>
+        </label>
+      </section>
+
+      <section id="filmGrid" class="film-grid"></section>
+    </main>
+
+    <template id="filmCardTemplate">
+      <article class="film-card glass">
+        <div class="thumb-wrap">
+          <img class="thumb" alt="" loading="lazy" />
+          <button class="favorite-btn" aria-label="Dodaj do ulubionych">♡</button>
+        </div>
+        <div class="film-content">
+          <div class="film-top">
+            <h3 class="film-title"></h3>
+            <span class="film-year"></span>
+          </div>
+          <p class="film-desc"></p>
+          <div class="film-meta">
+            <span class="badge film-genre"></span>
+            <span class="badge film-rating"></span>
+            <span class="badge film-time"></span>
+          </div>
+          <div class="film-actions">
+            <a class="btn btn-small trailer-link" target="_blank" rel="noopener noreferrer">▶ Zobacz trailer</a>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <dialog id="randomDialog" class="glass">
+      <form method="dialog">
+        <button class="close-btn" aria-label="Zamknij">✕</button>
+      </form>
+      <h2>Olek poleca dziś:</h2>
+      <p id="randomFilmTitle"></p>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
